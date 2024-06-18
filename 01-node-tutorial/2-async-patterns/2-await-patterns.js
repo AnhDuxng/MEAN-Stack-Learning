@@ -35,7 +35,7 @@ const { readFile, writeFile } = require('fs').promises
     } catch(err){
         console.log(err)
     }
-    
+
 }
 // More cleaner and more efficient than the callbacks like in the callback
 start()
