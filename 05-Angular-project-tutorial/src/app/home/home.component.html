@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="home-container" fxLayout="row" fxLayout.lt-md="column">
+  <div class="all-movie" fxFlex="75" fxFlex.lt-md="100">
+    <div class="trending-movies">
+      <div class="top" fxLayout="row" fxLayoutAlign="space-between center">
+        <h4>Trending Movies</h4>
+        <div class="view-all">View All</div>
+      </div>
+      <div class="movies-thumbnail" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+        <div class="movie" *ngFor="let movie of trendingMovies" fxFlex="0 1 calc(33.33% - 20px)" fxFlex.lt-md="0 1 calc(50% - 20px)" fxFlex.lt-sm="100%">
+          <div class="cover" (click)="goToMovie('trending', movie.id)">
+            <img [src]="movie.cover" alt="" loading="lazy">
+          </div>
+          <div class="detail">
+            <div class="name" (click)="goToMovie('trending', movie.id)">{{ movie.name }}</div>
+            <div class="rating">
+              <span class="rating-value">{{ movie.rating }}</span>
+              <app-star-rating [rating]="movie.rating" [isReadOnly]="true"></app-star-rating>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="theatre-movies">
+      <div class="top" fxLayout="row" fxLayoutAlign="space-between center">
+        <h4>Popular in Theatre</h4>
+        <div class="view-all">View All</div>
+      </div>
+      <div class="movies-thumbnail" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+        <div class="movie" *ngFor="let movie of theatreMovies" fxFlex="0 1 calc(33.33% - 20px)" fxFlex.lt-md="0 1 calc(50% - 20px)" fxFlex.lt-sm="100%">
+          <div class="cover" (click)="goToMovie('theatre', movie.id)">
+            <img [src]="movie.cover" alt="" loading="lazy">
+          </div>
+          <div class="detail">
+            <div class="name" (click)="goToMovie('theatre', movie.id)">{{ movie.name }}</div>
+            <div class="rating">
+              <span class="rating-value">{{ movie.rating }}</span>
+              <app-star-rating [rating]="movie.rating" [isReadOnly]="true"></app-star-rating>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popular-movies" fxFlex="25" fxFlex.lt-md="100">
+    <h4>All Time Popular</h4>
+    <div class="movies">
+      <div class="movie" *ngFor="let movie of popularMovies">
+        <div class="name" (click)="goToMovie('popular', movie.id)">{{ movie.name }}</div>
+        <div class="rating">
+          <span class="rating-value">{{ movie.rating }}</span>
+          <app-star-rating [rating]="movie.rating" [isReadOnly]="true"></app-star-rating>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

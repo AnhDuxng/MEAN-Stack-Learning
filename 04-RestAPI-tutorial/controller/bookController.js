@@ -1,7 +1,7 @@
 const { Book, Author } = require('../model/model');
 
 /* const bookController = {
-    // Add 1 book
+    Add 1 book
     addABook: async(req, res) =>{
         try{
             const newBook = new Book(req.body);
